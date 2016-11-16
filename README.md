@@ -15,4 +15,8 @@ mex -O CFLAGS="\$CFLAGS -std=c99 -Wall" im3col.c
 
 # Step 2
 
-Execute run.m to get the finest level of segmentation.
+Execute run.m to get the finest level of segmentation. This step may take a while.
+
+# Step 3
+
+Go to the gbh folder, use the makefile to compile the code for the agglomeration step. This implementation is based on [LIBSVX](http://web.eecs.umich.edu/~jjcorso/r/supervoxels/).
