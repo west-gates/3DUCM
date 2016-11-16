@@ -9,3 +9,10 @@ This is a rough implementation of the ideas in the paper that has dissatisfactor
 
 # Step 1
 
+In matlab, go to the lib folder, compile mex files with the command below:
+
+mex -O CFLAGS="\$CFLAGS -std=c99 -Wall" im3col.c
+
+# Step 2
+
+Execute run.m to get the finest level of segmentation.
