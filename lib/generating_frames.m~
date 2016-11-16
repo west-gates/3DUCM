@@ -1,0 +1,61 @@
+function generating_frames(p,PathInput,foldernames)
+
+DirInput = dir(PathInput);
+
+for i = 1:size(DirInput,1)
+    if strfind(DirInput(i,1).name, 'level_') > 0
+        seqstart=strfind(DirInput(i,1).name, 'level_')+6;
+        seqend=strfind(DirInput(i,1).name, '.mat')-1;
+        seqnum=str2num(DirInput(i,1).name(seqstart:seqend));
+
+        
+    	outputpath=['first_ppm/',foldernames{p},'/',num2str(seqnum)];
+    	mkdir(outputpath);
+
+    	load([PathInput,'/',DirInput(i,1).name]);
+    	[nx,ny,nz]=size(wnb);
+
+    	svxs=sort(unique(wnb));
+    	numOfsvx=length(svxs);
+    	Color_sample = randsample(1:255*255*255, numOfsvx);
+		for m=1:numOfsvx
+			[R(m), G(m), B(m)] = V_map_3D(Color_sample(1,m),255,255);
+		end
+
+    	RV=zeros(nx,ny,nz);
+    	GV=zeros(nx,ny,nz);
+    	BV=zeros(nx,ny,nz);
+
+    	for j = 1:numOfsvx
+    		index=find(wnb==svxs(j));
+    		RV(index)=R(j);
+    		GV(index)=G(j);
+    		BV(index)=B(j);
+    	end
+
+        disp(['Saving ',PathInput,'/',num2str(seqnum)]);
+
+    	for k = 1:nz
+    		svframe=zeros(nx,ny,3);
+    		svframe(:,:,1)=RV(:,:,k);
+    		svframe(:,:,2)=GV(:,:,k);
+    		svframe(:,:,3)=BV(:,:,k);
+
+    		svframe=uint8(svframe);
+
+            if k<10
+        		svname=[outputpath,'/0000',num2str(k),'.ppm'];
+        		%imwrite(svframe,svname,'ppm');
+                pnmwrite(svframe,svname);
+	    elseif k>=10 & k<100
+		svname=[outputpath,'/000',num2str(k),'.ppm'];
+                %imwrite(svframe,svname,'ppm');
+                pnmwrite(svframe,svname);
+            else
+                svname=[outputpath,'/00',num2str(k),'.ppm'];
+                %imwrite(svframe,svname,'ppm');
+                pnmwrite(svframe,svname);
+            end
+    	end
+    end
+end
