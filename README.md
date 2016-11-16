@@ -20,3 +20,14 @@ Execute run.m to get the finest level of segmentation. This step may take a whil
 # Step 3
 
 Go to the gbh folder, use the makefile to compile the code for the agglomeration step. This implementation is based on [LIBSVX](http://web.eecs.umich.edu/~jjcorso/r/supervoxels/).
+
+# Step 4
+
+Execute the compiled program to get the final results using the command below:
+
+./gbh c c_reg min sigma hie_num input output finest_level_input
+
+finest_level_input is the output of Step 2. Specifications of other parameters please refer to [LIBSVX](http://web.eecs.umich.edu/~jjcorso/r/supervoxels/).
+
+
+
