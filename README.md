@@ -23,7 +23,7 @@ Go to the gbh folder, use the makefile to compile the code for the agglomeration
 
 # Step 4
 
-Execute the compiled program to get the final results using the command below:
+Execute the compiled program to get the final results using the command below, run_gbh.sh gives an example:
 
 ./gbh c c_reg min sigma hie_num input output finest_level_input
 
