@@ -30,5 +30,5 @@ toc;
 
 level=0;
 
-svname=['ibsr_level0/',foldername,'/level_',num2str(level),'.mat'];
+svname=['level0/',foldername,'/level_',num2str(level),'.mat'];
 save(svname,'wnb');
