@@ -1,6 +1,6 @@
 function gbh_merge(fileseq,foldername,PathInput)
 
-mkdir(['ibsr_level0/',foldername]);
+mkdir(['level0/',foldername]);
 
 
 
@@ -30,5 +30,5 @@ toc;
 
 level=0;
 
-svname=['ibsr_level0/',foldername,'/level_',num2str(level),'.mat'];
+svname=['level0/',foldername,'/level_',num2str(level),'.mat'];
 save(svname,'wnb');

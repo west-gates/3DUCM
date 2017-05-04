@@ -1,6 +1,6 @@
 function gbh_merge(fileseq,foldername,PathInput)
 
-mkdir(['ibsr_level0/',foldername]);
+mkdir(['level0/',foldername]);
 
 
 
