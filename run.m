@@ -23,12 +23,12 @@ foldernames={'ice20'};
 tic
 
 for i = 1:1
-	%filepath=[datapath,foldernames{i}];
-	%videoGradient(filepath,scales,i);
-	%max_grad(scales,i);
-	%affinity_block(i);
-	%L_eigs(i);
-	%spb(i);
+	filepath=[datapath,foldernames{i}];
+	videoGradient(filepath,scales,i);
+	max_grad(scales,i);
+	affinity_block(i);
+	L_eigs(i);
+	spb(i);
 	foldername=foldernames{i};
 	PathInput=[datapath,foldername];
 	gbh_merge(i,foldername,PathInput);
